@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases count="1" isList="true">
+      <Connection1 isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>Connection1</Alias>
+        <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources count="1" isList="true">
+      <DataSource1 isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>DataSource1</Alias>
+        <Columns count="5" isList="true">
+          <value>vstmonth,System.String</value>
+          <value>count_vn_opd,System.Int32</value>
+          <value>count_hn_opd,System.Int32</value>
+          <value>count_in_new_year,System.Int32</value>
+          <value>Income,System.Decimal</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters count="0" isList="true"/>
+        <SqlCommand>SELECT
+
+CONCAT(MONTH(v.vstdate),'-',YEAR(v.vstdate))  as vstmonth ,
+COUNT(v.vn) as count_vn_opd  ,
+COUNT(distinct(v.hn)) as count_hn_opd ,
+
+(
+      SELECT
+            count(distinct(s.hn)) as count_hn_new_year
+      FROM vn_stat s
+      WHERE
+           s.count_in_year = 0  and   (CONCAT(YEAR(s.vstdate),'-',MONTH(s.vstdate)) = CONCAT(YEAR(v.vstdate),'-',MONTH(v.vstdate)))
+)     AS count_in_new_year,
+
+
+SUM(v.income) as Income
+
+
+FROM vn_stat v
+
+WHERE  v.vstdate BETWEEN "{datestart}" AND "{dateend}"
+
+group by  CONCAT(YEAR(v.vstdate),'-',MONTH(v.vstdate))
+
+
+order by v.vstdate</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations count="0" isList="true"/>
+    <Report isRef="0"/>
+    <Variables count="2" isList="true">
+      <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_014_x002D_01_x002D_01,False,False</value>
+      <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_014_x002D_01_x002D_01,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
+    <Page1 isKey="true" Ref="4" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components count="4" isList="true">
+        <PageHeaderBand1 isKey="true" Ref="5" type="PageHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.8</ClientRectangle>
+          <Components count="5" isList="true">
+            <Text1 isKey="true" Ref="6" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.2,0.2,16.6,1</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,22</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>รายงานสรุปจำนวนคนไข้ OPD แยกรายเดือน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text14 isKey="true" Ref="7" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,1.4,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{datestart}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 isKey="true" Ref="8" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,1.4,2.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ระหว่างวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 isKey="true" Ref="9" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.8,1.4,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{dateend}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 isKey="true" Ref="10" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,1.4,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ถึงวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </PageHeaderBand1>
+        <HeaderBand1 isKey="true" Ref="11" type="HeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,19,0.8</ClientRectangle>
+          <Components count="5" isList="true">
+            <Text3 isKey="true" Ref="12" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,2.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>เดือนทีรับบริการ</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text5 isKey="true" Ref="13" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,0,4.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>จำนวนการรับบริการ(ครั้ง)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text5>
+            <Text7 isKey="true" Ref="14" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.4,0,4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>จำนวนการรับบริการ(คน)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text9 isKey="true" Ref="15" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.8,0,3,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>รายใหม่ในปี(คน)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text11 isKey="true" Ref="16" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0,2.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ค่ารักษา(บาท)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 isKey="true" Ref="17" type="DataBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.6,19,0.8</ClientRectangle>
+          <Components count="6" isList="true">
+            <Text2 isKey="true" Ref="18" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0,2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <Text>{DataSource1.vstmonth}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+            <Text4 isKey="true" Ref="19" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.8,0,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <Text>{DataSource1.count_vn_opd}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <Text6 isKey="true" Ref="20" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.2,0,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <Text>{DataSource1.count_hn_opd}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text8 isKey="true" Ref="21" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.2,0,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <Text>{DataSource1.count_in_new_year}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text8>
+            <Text10 isKey="true" Ref="22" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.4,0,3.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <Text>{DataSource1.Income}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text10>
+            <HorizontalLinePrimitive1 isKey="true" Ref="23" type="HorizontalLinePrimitive">
+              <ClientRectangle>0.2,0.6,18.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions count="0" isList="true"/>
+              <EndCap isKey="true" Ref="24" type="Cap">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="17"/>
+              <StartCap isKey="true" Ref="25" type="Cap">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters count="0" isList="true"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort count="0" isList="true"/>
+        </DataBand1>
+        <FooterBand1 isKey="true" Ref="26" type="FooterBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.2,19,0.8</ClientRectangle>
+          <Components count="0" isList="true"/>
+          <Conditions count="0" isList="true"/>
+          <Name>FooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </FooterBand1>
+      </Components>
+      <Conditions count="0" isList="true"/>
+      <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="27" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="28" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>06/13/2014 01:37:27 PM</ReportChanged>
+  <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
+  <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_count_visit_opd.mrt</ReportFile>
+  <ReportGuid>d165cba624996e7a2aa893f1fa0e38ed</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.1.1300</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles count="0" isList="true"/>
+</StiSerializer>

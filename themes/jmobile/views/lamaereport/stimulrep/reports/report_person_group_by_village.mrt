@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer type="Flex" version="1.02" application="StiReport">
+  <Dictionary type="Dictionary" isKey="true" Ref="1">
+    <Databases count="1" isList="true">
+      <Connection1 type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true" Ref="2">
+        <Alias>Connection1</Alias>
+        <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources count="1" isList="true">
+      <DataSource1 type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true" Ref="3">
+        <Alias>DataSource1</Alias>
+        <Columns count="6" isList="true">
+          <value>village_id,System.Int32</value>
+          <value>village_moo,System.String</value>
+          <value>village_name,System.String</value>
+          <value>count_all,System.Int32</value>
+          <value>count_sex_wm,System.Int32</value>
+          <value>count_sex_m,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters count="0" isList="true"/>
+        <SqlCommand>SELECT v.village_id,v.village_moo,v.village_name  ,
+
+(select count(*)
+   from person p
+   where p.village_id = v.village_id and p.death = 'N' and p.house_regist_type_id in (1,3)   and p.nationality = "99"
+   and p.age_y between "{agestart}" and "{ageend}"
+) as count_all  ,
+
+
+(select count(*)
+   from person p
+   where p.village_id = v.village_id and p.death = 'N' and p.house_regist_type_id in (1,3)   and p.nationality = "99"
+   and p.sex="2" and p.age_y between "{agestart}" and "{ageend}"
+) as count_sex_wm  ,
+
+
+(select count(*)
+   from person p
+   where p.village_id = v.village_id and p.death = 'N' and p.house_regist_type_id in (1,3)   and p.nationality = "99"
+   and p.sex="1"  and p.age_y between "{agestart}" and "{ageend}"
+) as count_sex_m
+
+
+
+
+FROM village v
+
+
+WHERE v.village_id != "1"</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations count="0" isList="true"/>
+    <Report isRef="0"/>
+    <Variables count="2" isList="true">
+      <value>,agestart,เลือกอายุเริ่มต้น,System.String,_x0030_,False,False</value>
+      <value>,ageend,เลือกอายุสิ้นสุด,System.String,_x0030_,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
+    <Page1 type="Page" isKey="true" Ref="4">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components count="4" isList="true">
+        <PageHeaderBand1 type="PageHeaderBand" isKey="true" Ref="5">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.4</ClientRectangle>
+          <Components count="5" isList="true">
+            <Text1 type="Text" isKey="true" Ref="6">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,18.6,1</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,18,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>รายงานประชากรแยกตามกลุ่มอายุ/เพศ รายหมู่บ้าน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text15 type="Text" isKey="true" Ref="7">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,1.2,2.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ช่วงอายุระหว่าง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text17 type="Text" isKey="true" Ref="8">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.6,1.2,0.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ถึง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+            <Text2 type="Text" isKey="true" Ref="9">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,1.2,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{agestart}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+            <Text3 type="Text" isKey="true" Ref="10">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.2,1.2,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{ageend}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </PageHeaderBand1>
+        <HeaderBand1 type="HeaderBand" isKey="true" Ref="11">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.6,19,0.8</ClientRectangle>
+          <Components count="7" isList="true">
+            <Text5 type="Text" isKey="true" Ref="12">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>หมู่ที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text5>
+            <Text7 type="Text" isKey="true" Ref="13">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.2,2.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ชื่อหมู่บ้าน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text9 type="Text" isKey="true" Ref="14">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>รวม</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text11 type="Text" isKey="true" Ref="15">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>หญิง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text13 type="Text" isKey="true" Ref="16">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ชาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <HorizontalLinePrimitive1 type="HorizontalLinePrimitive" isKey="true" Ref="17">
+              <ClientRectangle>0.4,0.8,18.2,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions count="0" isList="true"/>
+              <EndCap type="Cap" isKey="true" Ref="18">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <StartCap type="Cap" isKey="true" Ref="19">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+            <HorizontalLinePrimitive2 type="HorizontalLinePrimitive" isKey="true" Ref="20">
+              <ClientRectangle>0.4,0,18.2,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions count="0" isList="true"/>
+              <EndCap type="Cap" isKey="true" Ref="21">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <StartCap type="Cap" isKey="true" Ref="22">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 type="DataBand" isKey="true" Ref="23">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,5.2,19,1</ClientRectangle>
+          <Components count="5" isList="true">
+            <Text4 type="Text" isKey="true" Ref="24">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="23"/>
+              <Text>{DataSource1.village_moo}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <Text6 type="Text" isKey="true" Ref="25">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.2,3,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="23"/>
+              <Text>{DataSource1.village_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text8 type="Text" isKey="true" Ref="26">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="23"/>
+              <Text>{DataSource1.count_all}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text8>
+            <Text10 type="Text" isKey="true" Ref="27">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.4,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="23"/>
+              <Text>{DataSource1.count_sex_wm}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text10>
+            <Text12 type="Text" isKey="true" Ref="28">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.2,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4"/>
+              <Parent isRef="23"/>
+              <Text>{DataSource1.count_sex_m}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters count="0" isList="true"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort count="0" isList="true"/>
+        </DataBand1>
+        <FooterBand1 type="FooterBand" isKey="true" Ref="29">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7,19,1.2</ClientRectangle>
+          <Components count="1" isList="true">
+            <Text14 type="Text" isKey="true" Ref="30">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0.6,15.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="29"/>
+              <Text>หมายเหตุ  : เฉพาะ ประชากรที่มี Typearea(1, 3) และเป็นคนไทย nationality(99)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>FooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </FooterBand1>
+      </Components>
+      <Conditions count="0" isList="true"/>
+      <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark type="Stimulsoft.Report.Components.StiWatermark" isKey="true" Ref="31">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" Ref="32"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>01/16/2014 08:45:22 AM</ReportChanged>
+  <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
+  <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_person_group_by_village.mrt</ReportFile>
+  <ReportGuid>4662a72a80f350deebed98b962fa1400</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.1.1300</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles count="0" isList="true"/>
+</StiSerializer>

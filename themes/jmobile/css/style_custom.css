@@ -1,0 +1,172 @@
+label {
+	width: 150px;
+	text-align: right;
+	padding-right: 3px;
+	display: inline-block;
+	color: #808080;
+	font-weight: bold;
+}
+
+body {
+	margin: 0px;
+}
+
+* {
+	font-size: 15px;
+}
+
+.header {
+	background: #3B5998;
+	padding: 10px;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.right {
+	background: #ECEFF5;
+	padding: 2px;
+	border-left: #CCCCCC 1px solid;
+}
+
+.left {
+	border-right: #CCCCCC 1px solid;
+}
+
+.left-topic {
+	color: #999999;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.jstree {
+	background: #ffffff;
+}
+
+.button {
+	background: #627AAC;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+	font-weight: bold;
+	display: inline-block;
+	border: #627AAC 1px solid;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.content-top {
+	padding: 10px;
+	padding-bottom: 35px;
+	border-bottom: #808080 0px solid;
+}
+.content-topic {
+	color: #3B5998;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.jstree ul li {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.textbox {
+	padding: 4px;
+	font-size: 14px;
+	margin-right: 1px;
+}
+
+form div {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.left {
+	padding: 7px;
+}
+
+.button-add {
+	background: #000000;
+	color: white;
+	border: #808080 1px solid;
+}
+
+.button-cancel {
+	background: #E3E3E3;
+	color: black;
+	border: #808080 1px solid;
+}
+.button-delete {
+	background: #E55927;
+	border: red 1px solid;
+}
+.button-edit {
+	background: #658153;
+	border: green 1px solid;
+}
+
+
+.grid-view .items thead tr th {
+	background: #000000;
+	padding: 8px;
+	width: 900px;
+	
+}
+.grid-view .items tbody tr.odd {
+	background: #D8DFEA;
+	padding: 8px;
+
+}
+.disabled {
+	background-color: #cccccc;
+	color: #808080;
+	border: #808080 1px solid;
+	padding: 5px;
+}
+
+.box {
+	padding: 10px;
+	border: #cccccc 1px solid;
+	margin-bottom: 15px;
+}
+.box-alert {
+	border-left: 5px red solid;
+	background: #F2DEDE;
+}
+.box-success {
+	border-left: 5px green solid;
+	background: #DFF0D8;
+}
+.box-primary {
+	border-left: 5px #808080 solid;
+	background: #DDDDDD;
+}
+.box-topic {
+	color: #3B5998;
+	font-weight: bold;
+}
+
+.right-box {
+	padding: 4px;
+}
+.right-box-topic {
+	color: #3B5998;
+	font-weight: bold;
+}
+.input {
+	padding: 7px;
+	padding-right: 10px;
+	border: #cccccc 1px solid;
+	color: #808080;
+	font-weight: bold;
+	background: #f9f8f7;
+	display: inline-block;
+	width: 500px;
+}
+.row {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}

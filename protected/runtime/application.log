@@ -1,0 +1,1352 @@
+2013/11/13 20:48:52 [error] [exception.CDbException] exception 'CDbException' with message 'The table "user" for active record class "User" cannot be found in the database.' in C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): CActiveRecord->findByAttributes(Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/checkLogin')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 20:59:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ireport.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in C:\AppServ\www\iREPORT\protected\controllers\UserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 20:59:00 [error] [exception.CDbException] exception 'CDbException' with message 'ตาราง "user" สำหรับบันทึกข้อมูลของ "User" ไม่พบในฐานข้อมูล' in C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): CActiveRecord->findByAttributes(Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/checkLogin')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:02:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ireport.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in C:\AppServ\www\iREPORT\protected\controllers\UserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 21:02:13 [error] [exception.CDbException] exception 'CDbException' with message 'ตาราง "user" สำหรับบันทึกข้อมูลของ "User" ไม่พบในฐานข้อมูล' in C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): CActiveRecord->findByAttributes(Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/checkLogin')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:02:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_ireport.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in C:\AppServ\www\iREPORT\protected\controllers\UserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 21:02:40 [error] [exception.CDbException] exception 'CDbException' with message 'ตาราง "user" สำหรับบันทึกข้อมูลของ "User" ไม่พบในฐานข้อมูล' in C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): CActiveRecord->findByAttributes(Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/checkLogin')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:04:19 [error] [php] YiiBase::include(User.php) [<a href='yiibase.include'>yiibase.include</a>]: failed to open stream: No such file or directory (C:\AppServ\www\iREPORT\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): spl_autoload_call()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): UserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): UserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): UserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+in C:\AppServ\www\iREPORT\protected\controllers\UserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 21:04:28 [error] [php] YiiBase::include(User.php) [<a href='yiibase.include'>yiibase.include</a>]: failed to open stream: No such file or directory (C:\AppServ\www\iREPORT\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\UserController.php(66): spl_autoload_call()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): UserController->actionCheckLogin()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): UserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): UserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): UserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+in C:\AppServ\www\iREPORT\protected\controllers\UserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 21:06:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/checkLogin".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/checkLogin')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:07:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "main" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('main')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('main')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('site/main')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=site/main
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:08:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "main" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('main')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('main')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('site/main')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=site/main
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/13 21:16:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/logout".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/logout')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/logout
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:16:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/logout".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/logout')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/logout
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:27:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:27:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:27:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:27:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:28:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:38:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:41:07 [error] [php] YiiBase::include(LoginForm.php) [<a href='yiibase.include'>yiibase.include</a>]: failed to open stream: No such file or directory (C:\AppServ\www\iREPORT\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\SiteController.php(87): spl_autoload_call()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=site/login
+in C:\AppServ\www\iREPORT\protected\controllers\SiteController.php (87)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/13 21:45:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:45:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 21:46:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:07:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:08:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:21:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "index" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:22:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "index" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:23:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:24:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:24:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('showreport')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:25:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "show" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('report/show')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=report/show&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/13 22:25:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "show" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('report/show')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=report/show&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 13:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "lamaereport/showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 13:41:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "lamaereport/showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 13:41:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "lamaereport/showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 13:41:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "lamaereport/showreport".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 13:59:27 [error] [exception.CException] exception 'CException' with message 'คุณสมบัติ "CDbCriteria.where" ยังไม่ถูกกำหนด' in C:\AppServ\www\iREPORT\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(17): CComponent->__set('where', '(lamaedepartmen...')
+#1 [internal function]: LamaeReportController->actionShowReport('1')
+#2 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('showreport')
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#9 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 14:00:27 [error] [exception.CException] exception 'CException' with message 'คุณสมบัติ "CDbCriteria.compare" ยังไม่ถูกกำหนด' in C:\AppServ\www\iREPORT\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(17): CComponent->__set('compare', '(lamaedepartmen...')
+#1 [internal function]: LamaeReportController->actionShowReport('1')
+#2 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('showreport')
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#9 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 14:00:30 [error] [exception.CException] exception 'CException' with message 'คุณสมบัติ "CDbCriteria.compare" ยังไม่ถูกกำหนด' in C:\AppServ\www\iREPORT\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(17): CComponent->__set('compare', '(lamaedepartmen...')
+#1 [internal function]: LamaeReportController->actionShowReport('1')
+#2 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('showreport')
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#9 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 14:00:30 [error] [exception.CException] exception 'CException' with message 'คุณสมบัติ "CDbCriteria.compare" ยังไม่ถูกกำหนด' in C:\AppServ\www\iREPORT\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(17): CComponent->__set('compare', '(lamaedepartmen...')
+#1 [internal function]: LamaeReportController->actionShowReport('1')
+#2 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('showreport')
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#9 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=site/main
+---
+2013/11/14 14:05:16 [error] [exception.CException] exception 'CException' with message 'The "dataProvider" property cannot be empty.' in C:\AppServ\www\iREPORT\framework\zii\widgets\CBaseListView.php:109
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#1 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(147): CListView->init()
+#2 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\showreport.php(13): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(126): require('C:\AppServ\www\...')
+#5 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\AppServ\www\...', Array, true)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(869): CBaseController->renderFile('C:\AppServ\www\...', Array, true)
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('showreport', Array, true)
+#8 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(24): CController->render('showreport', Array)
+#9 [internal function]: LamaeReportController->actionShowReport('1')
+#10 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#11 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('showreport')
+#16 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sho...')
+#17 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/showreport&id=1
+---
+2013/11/14 14:13:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "department/form".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('department/form')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=department/form&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/showreport&id=1
+---
+2013/11/14 14:15:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "form" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('form')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('form')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/for...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/form&id=1
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/showreport&id=1
+---
+2013/11/14 14:41:37 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "formreadmit1" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('formreadmit1', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('formreadmit1')
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:41:49 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "$view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('$view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('$view', NULL)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:42:00 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('view', NULL)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:42:01 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('view', NULL)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:44:19 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('view', NULL)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:44:20 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('view', NULL)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:44:40 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "$view" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('$view', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('$view')
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit1')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit1
+---
+2013/11/14 14:45:16 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "formreadmit2" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('formreadmit2', NULL, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(43): CController->render('formreadmit2')
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit2')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit2
+---
+2013/11/14 15:05:24 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "formreadmit2" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('formreadmit2', Array, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(50): CController->render('formreadmit2', Array)
+#2 [internal function]: LamaeReportController->actionSelectForm('formreadmit2', 'action2')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&formdisplay=formreadmit2&pointer=action2
+---
+2013/11/14 15:36:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "<?=readmit28day;?>" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('<?=readmit28day...')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('<?=readmit28day...')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/<?=...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/%3C?=readmit28day;?%3E
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&formdisplay=form1&pointer=readmit28day
+---
+2013/11/15 15:56:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "http:" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('http:')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('http:')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/htt...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 15:57:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "http:" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('http:')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('http:')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/htt...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 15:59:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "http:" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('http:')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('http:')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/htt...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 15:59:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "http:" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('http:')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('http:')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/htt...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 16:00:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "ireport" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('ireport')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('ireport')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/ire...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 21:10:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 21:20:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/15 22:07:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:22:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:23:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:23:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/ stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user/http://loc...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user/http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:30:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('http://localhos...')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 13:31:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "Yii::app()->theme->baseUrl;" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('Yii::app()->the...')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('Yii::app()->the...')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/Yii...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/Yii::app()-%3Etheme-%3EbaseUrl;
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=http://localhost/ireport/themes/jmobile/views/lamaereport/stimulrep/%20stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=Report_test.mrt
+---
+2013/11/19 14:59:36 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\AppServ\www\iREPORT\framework\web\helpers\CHtml.php:103)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\helpers\CHtml.php(158): renderAttributes()
+#1 C:\AppServ\www\iREPORT\framework\web\helpers\CHtml.php(1351): tag()
+#2 C:\AppServ\www\iREPORT\framework\web\helpers\CHtml.php(596): inputField()
+#3 C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php(10): textField()
+#4 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(126): require()
+#5 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(95): LamaeReportController->renderInternal()
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(869): LamaeReportController->renderFile()
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(782): LamaeReportController->renderPartial()
+#8 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(54): LamaeReportController->render()
+#9 unknown(0): LamaeReportController->actionSelectForm()
+#10 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#11 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#12 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeReportController->runAction()
+#14 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeReportController->runActionWithFilters()
+#15 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeReportController->run()
+#16 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=Report_test
+in C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php (10)
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php (54)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/19 15:27:20 [error] [exception.CException] exception 'CException' with message 'คุณสมบัติ "LamaeReportController.width" ยังไม่ถูกกำหนด' in C:\AppServ\www\iREPORT\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php(24): CComponent->__get('width')
+#1 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(126): require('C:\AppServ\www\...')
+#2 C:\AppServ\www\iREPORT\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\AppServ\www\...', Array, true)
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(869): CBaseController->renderFile('C:\AppServ\www\...', Array, true)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('form1', Array, true)
+#5 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(54): CController->render('form1', Array)
+#6 [internal function]: LamaeReportController->actionSelectForm('form1', 'Report_test')
+#7 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=Report_test
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/showreport&dep_id=1
+---
+2013/11/19 16:16:50 [error] [php] Object of class CJuiDatePicker could not be converted to string (C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php:26)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(869): LamaeReportController->renderFile()
+#1 C:\AppServ\www\iREPORT\framework\web\CController.php(782): LamaeReportController->renderPartial()
+#2 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(54): LamaeReportController->render()
+#3 unknown(0): LamaeReportController->actionSelectForm()
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeReportController->runAction()
+#8 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeReportController->runActionWithFilters()
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeReportController->run()
+#10 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=Report_test
+in C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php (26)
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php (54)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/19 16:16:51 [error] [php] Object of class CJuiDatePicker could not be converted to string (C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php:26)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(869): LamaeReportController->renderFile()
+#1 C:\AppServ\www\iREPORT\framework\web\CController.php(782): LamaeReportController->renderPartial()
+#2 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(54): LamaeReportController->render()
+#3 unknown(0): LamaeReportController->actionSelectForm()
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeReportController->runAction()
+#8 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeReportController->runActionWithFilters()
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeReportController->run()
+#10 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=Report_test
+in C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php (26)
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php (54)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/19 16:16:51 [error] [php] Object of class CJuiDatePicker could not be converted to string (C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php:26)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(869): LamaeReportController->renderFile()
+#1 C:\AppServ\www\iREPORT\framework\web\CController.php(782): LamaeReportController->renderPartial()
+#2 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(54): LamaeReportController->render()
+#3 unknown(0): LamaeReportController->actionSelectForm()
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeReportController->runAction()
+#8 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeReportController->runActionWithFilters()
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeReportController->run()
+#10 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form1&pointer=Report_test
+in C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\form1.php (26)
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php (54)
+in C:\AppServ\www\iREPORT\index.php (13)
+2013/11/19 20:02:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "site" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('site')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('site')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/site')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/site
+HTTP_REFERER=http://localhost/ireport/index.php
+---
+2013/11/20 16:49:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2003] Can't connect to MySQL server on '192.168.1.253' (10051)' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2013/11/23 19:05:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "readmit28daydiag" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('readmit28daydia...')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('readmit28daydia...')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/rea...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/readmit28daydiag
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form2&pointer=readmit28daydiag
+---
+2013/11/23 19:24:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user
+---
+2013/11/23 19:25:13 [error] [exception.CException] exception 'CException' with message 'LamaeUserController ไม่สามารถค้นหา "index" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(15): CController->render('index', Array)
+#2 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionIndex()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser')
+#8 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser
+---
+2013/11/23 19:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user
+---
+2013/11/23 19:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\AppServ\www\iREPORT\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#1 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/ireport/index.php?r=user
+---
+2013/11/27 09:55:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "readmit28daydiag" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('readmit28daydia...')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('readmit28daydia...')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/rea...')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/readmit28daydiag
+HTTP_REFERER=http://localhost/ireport/index.php?r=lamaereport/selectform&form=form2&pointer=readmit28daydiag
+---
+2013/12/13 13:01:49 [error] [exception.CException] exception 'CException' with message 'LamaeReportController ไม่สามารถค้นหา "form3" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:878
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(782): CController->renderPartial('form3', Array, true)
+#1 C:\AppServ\www\iREPORT\protected\controllers\LamaeReportController.php(44): CController->render('form3', Array)
+#2 [internal function]: LamaeReportController->actionSelectForm('form3', 'report_ipd_lab_...')
+#3 C:\AppServ\www\iREPORT\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(LamaeReportController), Array)
+#4 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(LamaeReportController), Object(ReflectionMethod), Array)
+#5 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('selectform')
+#9 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport/sel...')
+#10 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport/selectform&form=form3&pointer=report_ipd_lab_order
+---
+2015/11/04 11:30:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2015/11/04 11:31:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+---
+2015/11/04 11:31:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2015/11/06 14:27:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://192.168.1.252/ireport/
+---
+2015/11/06 14:28:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport./index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://192.168.1.252/ireport./
+---
+2015/11/06 14:29:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://192.168.1.252/ireport/
+---
+2015/11/06 14:50:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\AppServ\www\iREPORT\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\AppServ\www\iREPORT\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\AppServ\www\iREPORT\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 C:\AppServ\www\iREPORT\framework\db\ar\CActiveRecord.php(1517): CActiveRecord->getTableAlias(true)
+#7 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(56): CActiveRecord->findByAttributes(Array)
+#8 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#9 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\AppServ\www\iREPORT\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\AppServ\www\iREPORT\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('checkLogin')
+#13 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaeuser/check...')
+#14 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+HTTP_REFERER=http://localhost/ireport/
+---
+2015/11/06 14:56:40 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\iREPORT\protected\config\main.php:1) (C:\AppServ\www\iREPORT\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(66): LamaeUserController->redirect()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionCheckLogin()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeUserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeUserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeUserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaeuser/checkLogin
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php (66)
+in C:\AppServ\www\iREPORT\index.php (13)
+2015/11/06 14:57:37 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\iREPORT\protected\config\main.php:1) (C:\AppServ\www\iREPORT\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(77): LamaeUserController->redirect()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionLogout()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeUserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeUserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeUserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaeuser/logout
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php (77)
+in C:\AppServ\www\iREPORT\index.php (13)
+2015/11/06 14:58:50 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\iREPORT\protected\config\main.php:1) (C:\AppServ\www\iREPORT\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(77): LamaeUserController->redirect()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionLogout()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeUserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeUserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeUserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaeuser/logout
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php (77)
+in C:\AppServ\www\iREPORT\index.php (13)
+2015/11/06 14:59:04 [error] [php] Cannot modify header information - headers already sent by (output started at C:\AppServ\www\iREPORT\protected\config\main.php:1) (C:\AppServ\www\iREPORT\framework\web\CHttpRequest.php:803)
+Stack trace:
+#0 C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php(77): LamaeUserController->redirect()
+#1 C:\AppServ\www\iREPORT\framework\web\actions\CInlineAction.php(49): LamaeUserController->actionLogout()
+#2 C:\AppServ\www\iREPORT\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\AppServ\www\iREPORT\framework\web\CController.php(286): LamaeUserController->runAction()
+#4 C:\AppServ\www\iREPORT\framework\web\CController.php(265): LamaeUserController->runActionWithFilters()
+#5 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): LamaeUserController->run()
+#6 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\AppServ\www\iREPORT\index.php(13): CWebApplication->run()
+REQUEST_URI=/ireport/index.php?r=lamaeuser/logout
+in C:\AppServ\www\iREPORT\protected\controllers\LamaeUserController.php (77)
+in C:\AppServ\www\iREPORT\index.php (13)
+2016/02/04 16:03:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'ระบบไม่สามารถดำเนินการ "index" ตามคำสั่งได้' in C:\AppServ\www\iREPORT\framework\web\CController.php:483
+Stack trace:
+#0 C:\AppServ\www\iREPORT\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\AppServ\www\iREPORT\framework\web\CWebApplication.php(141): CWebApplication->runController('lamaereport')
+#3 C:\AppServ\www\iREPORT\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\AppServ\www\iREPORT\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/ireport/index.php?r=lamaereport
+---

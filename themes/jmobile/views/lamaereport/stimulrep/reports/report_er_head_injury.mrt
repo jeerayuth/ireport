@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <Databases isList="true" count="1">
+      <Connection1 Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
+        <Alias>Connection1</Alias>
+        <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource1 Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="15">
+          <value>hn,System.String</value>
+          <value>pt_name,System.String</value>
+          <value>vstdate,System.DateTime</value>
+          <value>vsttime,System.DateTime</value>
+          <value>emergency_name,System.String</value>
+          <value>dch_name,System.String</value>
+          <value>icd10,System.String</value>
+          <value>icd_name,System.String</value>
+          <value>item_money,System.Decimal</value>
+          <value>dx0,System.String</value>
+          <value>dx1,System.String</value>
+          <value>dx2,System.String</value>
+          <value>dx3,System.String</value>
+          <value>dx4,System.String</value>
+          <value>dx5,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>SELECT
+
+v.hn,concat(p.pname,p.fname,'  ',p.lname) as pt_name, v.vstdate,v.vsttime,
+ert.name as emergency_name,erc.name as dch_name,o.icd10 as icd10,
+ic.name as icd_name,vs.item_money as item_money,
+dx0,dx1,dx2,dx3,dx4,dx5
+          
+FROM er_regist  e
+                      
+left outer join ovst v on v.vn=e.vn
+left outer join er_emergency_type ert on ert.er_emergency_type=e.er_emergency_type 
+left outer join er_dch_type erc on erc.er_dch_type=e.er_dch_type 
+left outer join ovstdiag o on o.vn = e.vn and o.diagtype='1'
+left outer join kskdepartment k on k.depcode =v.main_dep 
+left outer join patient p on p.hn=v.hn 
+left outer join er_period ep on ep.er_period=e.er_period 
+left outer join  doctor d on d.code= e.er_doctor
+left outer join  vn_stat vs on vs.vn= e.vn
+left outer join icd101 ic on ic.code = o.icd10
+
+WHERE 
+
+e.vstdate BETWEEN "{datestart}" and "{dateend}"
+
+and (vs.pdx ="s000" OR vs.pdx="s008"  OR vs.pdx="s010" OR vs.pdx="s018" OR vs.pdx="s019" OR vs.pdx="s0200" OR vs.pdx="s0211" OR (vs.pdx between "s0280" and "s0291") OR vs.pdx="s0600" OR vs.pdx="s079" OR vs.pdx="s080" OR vs.pdx="s088" OR vs.pdx="s089" OR vs.pdx="s090" OR vs.pdx="s091" OR vs.pdx="s098" OR vs.pdx="s099")
+or  (vs.dx0 ="s000" OR vs.dx0="s008"  OR vs.dx0="s010" OR vs.dx0="s018" OR vs.dx0="s019" OR vs.dx0="s0200" OR vs.dx0="s0211" OR (vs.dx0 between "s0280" and "s0291") OR vs.dx0="s0600" OR vs.dx0="s079" OR vs.dx0="s080" OR vs.dx0="s088" OR vs.dx0="s089" OR vs.dx0="s090" OR vs.dx0="s091" OR vs.dx0="s098" OR vs.dx0="s099")
+or  (vs.dx1 ="s000" OR vs.dx1="s008"  OR vs.dx1="s010" OR vs.dx1="s018" OR vs.dx1="s019" OR vs.dx1="s0200" OR vs.dx1="s0211" OR (vs.dx1 between "s0280" and "s0291") OR vs.dx1="s0600" OR vs.dx1="s079" OR vs.dx1="s080" OR vs.dx1="s088" OR vs.dx1="s089" OR vs.dx1="s090" OR vs.dx1="s091" OR vs.dx1="s098" OR vs.dx1="s099")
+or  (vs.dx2 ="s000" OR vs.dx2="s008"  OR vs.dx2="s010" OR vs.dx2="s018" OR vs.dx2="s019" OR vs.dx2="s0200" OR vs.dx2="s0211" OR (vs.dx2 between "s0280" and "s0291") OR vs.dx2="s0600" OR vs.dx2="s079" OR vs.dx2="s080" OR vs.dx2="s088" OR vs.dx2="s089" OR vs.dx2="s090" OR vs.dx2="s091" OR vs.dx2="s098" OR vs.dx2="s099")
+or  (vs.dx3 ="s000" OR vs.dx3="s008"  OR vs.dx3="s010" OR vs.dx3="s018" OR vs.dx3="s019" OR vs.dx3="s0200" OR vs.dx3="s0211" OR (vs.dx3 between "s0280" and "s0291") OR vs.dx3="s0600" OR vs.dx3="s079" OR vs.dx3="s080" OR vs.dx3="s088" OR vs.dx3="s089" OR vs.dx3="s090" OR vs.dx3="s091" OR vs.dx3="s098" OR vs.dx3="s099")
+or  (vs.dx4 ="s000" OR vs.dx4="s008"  OR vs.dx4="s010" OR vs.dx4="s018" OR vs.dx4="s019" OR vs.dx4="s0200" OR vs.dx4="s0211" OR (vs.dx4 between "s0280" and "s0291") OR vs.dx4="s0600" OR vs.dx4="s079" OR vs.dx4="s080" OR vs.dx4="s088" OR vs.dx4="s089" OR vs.dx4="s090" OR vs.dx4="s091" OR vs.dx4="s098" OR vs.dx4="s099")
+or  (vs.dx5 ="s000" OR vs.dx5="s008"  OR vs.dx5="s010" OR vs.dx5="s018" OR vs.dx5="s019" OR vs.dx5="s0200" OR vs.dx5="s0211" OR (vs.dx5 between "s0280" and "s0291") OR vs.dx5="s0600" OR vs.dx5="s079" OR vs.dx5="s080" OR vs.dx5="s088" OR vs.dx5="s089" OR vs.dx5="s090" OR vs.dx5="s091" OR vs.dx5="s098" OR vs.dx5="s099")
+
+
+ORDER BY v.vstdate,vs.pdx</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="2">
+      <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
+      <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,20,2.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,18.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>รายงานจำนวนคนไข้(ER) Head Injury</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text14 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,1.4,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{datestart}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,1.4,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ระหว่างวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.8,1.4,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{dateend}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,1.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ถึงวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </PageHeaderBand1>
+        <HeaderBand1 Ref="11" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,20,0.8</ClientRectangle>
+          <Components isList="true" count="11">
+            <Text3 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>HN</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text7 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>วันที่รับบริการ</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text13 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ชื่อ - สกุล</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text4 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.2,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>โรคหลัก</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <Text5 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.6,0,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx0</Text>
+              <TextBrush>Black</TextBrush>
+            </Text5>
+            <Text11 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.8,0,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx1</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text21 Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,0,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx2</Text>
+              <TextBrush>Black</TextBrush>
+            </Text21>
+            <Text23 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx3</Text>
+              <TextBrush>Black</TextBrush>
+            </Text23>
+            <Text25 Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.2,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx4</Text>
+              <TextBrush>Black</TextBrush>
+            </Text25>
+            <Text27 Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>dx5</Text>
+              <TextBrush>Black</TextBrush>
+            </Text27>
+            <HorizontalLinePrimitive1 Ref="22" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,0.6,20,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions isList="true" count="0"/>
+              <EndCap Ref="23" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <StartCap Ref="24" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 Ref="25" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanBreak>True</CanBreak>
+          <ClientRectangle>0,5.6,20,0.8</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text6 Ref="26" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>0.2,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.hn}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text9 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>1.8,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.pt_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text10 Ref="28" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>6,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.vstdate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="29" type="DateFormat" isKey="true">
+                <StringFormat>dd/MM/yyyy</StringFormat>
+              </TextFormat>
+            </Text10>
+            <Text20 Ref="30" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>8.2,0,1.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.icd10}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text20>
+            <Text2 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>9.6,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx0}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text2>
+            <Text8 Ref="32" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>11,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx1}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text8>
+            <Text12 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>12.4,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx2}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+            <Text22 Ref="34" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>13.8,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx3}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text22>
+            <Text24 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>15.2,0,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx4}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text24>
+            <Text26 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>17,0,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4"/>
+              <Parent isRef="25"/>
+              <Text>{DataSource1.dx5}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text26>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <FooterBand1 Ref="37" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.2,20,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text18 Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.2,0.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4"/>
+              <Parent isRef="37"/>
+              <Text>{Count(DataBand1)}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text18>
+            <Text19 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.2,0.2,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4"/>
+              <Parent isRef="37"/>
+              <Text>จำนวนผู้รับบริการ</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>FooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0"/>
+      <Watermark Ref="40" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="41" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>02/10/2014 11:01:38 AM</ReportChanged>
+  <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
+  <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_er_head_injury.mrt</ReportFile>
+  <ReportGuid>37e205e824f77b8a58ed19f51e122a6c</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.1.1300</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

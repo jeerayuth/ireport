@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" application="StiReport" type="Flex">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases isList="true" count="1">
+      <Connection1 isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>Connection1</Alias>
+        <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource1 isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="7">
+          <value>vstdate,System.DateTime</value>
+          <value>count_all_visit,System.Int32</value>
+          <value>count_folder_complete,System.Int32</value>
+          <value>count_in_time,System.Int32</value>
+          <value>difference_date_receive,System.Int32</value>
+          <value>count_rw_o,System.Int32</value>
+          <value>count_pdx_empty,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>SELECT
+
+v.vstdate,
+
+(
+  select count(n.vn) from vn_stat n where n.vstdate = v.vstdate
+) as count_all_visit ,
+
+
+(
+  select count(s.vn) from vn_stat s
+
+  left outer join vn_opd_complete o on o.vn = s.vn
+
+  where s.vstdate = v.vstdate AND
+
+  s.vn  in (select vn from vn_opd_complete where complete = "Y")
+)  as count_folder_complete  ,
+
+
+(
+   select count(distinct(s.vn)) from vn_stat s
+
+  left outer join vn_opd_complete o on o.vn = s.vn
+
+  left outer join ksklog k on k.detail = s.vn
+
+  where s.vstdate = v.vstdate  AND  Time(k.logtime) &gt;= "07:00:00" AND Time(k.logtime) &lt;= "15:30:00"  AND k.loginname = "ศุภนารี"
+  AND s.vn  in (select vn from vn_opd_complete where complete = "Y")
+
+) as count_in_time ,
+
+
+(
+   SELECT count(distinct(s.vn))  FROM vn_stat s
+
+  left outer join vn_opd_complete o on o.vn = s.vn
+
+  left outer join ksklog k on k.detail = s.vn
+
+  WHERE s.vstdate =  v.vstdate   AND  Time(k.logtime) &gt;= "07:00:00" AND   
+  
+  Time(k.logtime) &lt;= "15:30:00"  AND k.loginname = "ศุภนารี"
+  
+  AND s.vstdate != DATE(k.logtime)  AND  s.vn = k.detail
+
+  AND s.vn  in (select vn from vn_opd_complete where complete = "Y")
+
+) as difference_date_receive, 
+
+(
+     SELECT count(distinct(s.vn))  FROM vn_stat  s
+
+    LEFT OUTER JOIN ovst_drgs o ON o.vn = s.vn
+
+    WHERE s.vstdate = v.vstdate  AND o.rw = 0
+
+)  as count_rw_o, 
+
+(
+     SELECT count(distinct(s.vn))  FROM vn_stat  s
+
+    WHERE s.vstdate = v.vstdate  AND s.pdx=""
+
+)  as count_pdx_empty
+
+
+
+FROM vn_stat v
+
+WHERE v.vstdate between "{datestart}" and "{dateend}"
+
+GROUP BY v.vstdate
+
+ORDER BY v.vstdate</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="2">
+      <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_014_x002D_01_x002D_01,False,False</value>
+      <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_014_x002D_01_x002D_01,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" Ref="4" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <PageHeaderBand1 isKey="true" Ref="5" type="PageHeaderBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,28.7,2.2</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text1 isKey="true" Ref="6" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,28.2,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,22</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>รายงานการตรวจสอบเวชระเบียนผู้ป่วยนอก(OPD CARD)เบื้องต้น</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text14 isKey="true" Ref="7" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.8,1.4,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{datestart}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 isKey="true" Ref="8" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.2,1.4,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ระหว่างวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 isKey="true" Ref="9" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15,1.4,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{dateend}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 isKey="true" Ref="10" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,1.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ถึงวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </PageHeaderBand1>
+        <HeaderBand1 isKey="true" Ref="11" type="HeaderBand">
+          <Border>All;Black;1;Solid;False;1;Black</Border>
+          <Brush>DarkGray</Brush>
+          <ClientRectangle>0,3.4,28.7,1</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text3 isKey="true" Ref="12" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>วันที่รับบริการ</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text8 isKey="true" Ref="13" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.2,0.2,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ได้รับ opd card (ทั้งหมด)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text8>
+            <Text7 isKey="true" Ref="14" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0.2,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ได้รับ opd card (ในเวลา)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text5 isKey="true" Ref="15" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.2,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>จำนวนการรับบริการ(ครั้ง)</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=90, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text10 isKey="true" Ref="16" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.2,0.2,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>ได้รับ opd card (คนละวัน)</Text>
+              <TextBrush>Black</TextBrush>
+            </Text10>
+            <Text12 isKey="true" Ref="17" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,0.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>RW เป็น 0</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+            <Text13 isKey="true" Ref="18" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.8,0.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="11"/>
+              <Text>No Diag</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 isKey="true" Ref="19" type="DataBand">
+          <Border>All;Black;1;Solid;False;1;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.2,28.7,1</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text2 isKey="true" Ref="20" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.vstdate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat isKey="true" Ref="21" type="DateFormat">
+                <StringFormat>dd/MM/yyyy</StringFormat>
+              </TextFormat>
+            </Text2>
+            <Text4 isKey="true" Ref="22" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,0.2,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.count_all_visit}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <Text6 isKey="true" Ref="23" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9,0.2,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.count_folder_complete}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text9 isKey="true" Ref="24" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.4,0.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.count_in_time}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text11 isKey="true" Ref="25" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19,0.2,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.difference_date_receive}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text18 isKey="true" Ref="26" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,0.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.count_rw_o}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text18>
+            <Text19 isKey="true" Ref="27" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.8,0.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4"/>
+              <Parent isRef="19"/>
+              <Text>{DataSource1.count_pdx_empty}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+        <FooterBand1 isKey="true" Ref="28" type="FooterBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7,28.7,0.8</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Name>FooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="29" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="30" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/03/2014 09:24:17 AM</ReportChanged>
+  <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
+  <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_count_complete_folder.mrt</ReportFile>
+  <ReportGuid>ecf925d7f1220a664ef4737797bc29dc</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.1.1300</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>
