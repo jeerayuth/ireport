@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<StiSerializer version="1.02" application="StiReport" type="Flex">
+<StiSerializer version="1.02" type="Flex" application="StiReport">
   <Dictionary Ref="1" type="Dictionary" isKey="true">
-    <Databases isList="true" count="1">
+    <Databases count="1" isList="true">
       <Connection1 Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
         <Alias>Connection1</Alias>
         <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
         <Name>Connection1</Name>
       </Connection1>
     </Databases>
-    <DataSources isList="true" count="1">
+    <DataSources count="1" isList="true">
       <DataSource1 Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
         <Alias>DataSource1</Alias>
-        <Columns isList="true" count="13">
+        <Columns count="13" isList="true">
           <value>lastvisit_hour,System.Int32</value>
           <value>vn,System.String</value>
           <value>hn,System.String</value>
@@ -30,7 +30,7 @@
         <Dictionary isRef="1"/>
         <Name>DataSource1</Name>
         <NameInSource>Connection1</NameInSource>
-        <Parameters isList="true" count="0"/>
+        <Parameters count="0" isList="true"/>
         <SqlCommand>select
 v.lastvisit_hour,v.vn,v.hn,v.vstdate,
 concat(p.pname,p.fname,'  ',p.lname) as pt_name,s.name ,
@@ -48,34 +48,36 @@ where c.clinic = "019"  and c.clinic_member_status_id="1"
 
 and v.lastvisit_hour &lt;= 48
 
-and v.vstdate between "{datestart}" and  "{dateend}"
+and v.vstdate between "{datestart}" and  "{dateend}"  and v.old_diagnosis = "Y"
 
-and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
+and  v.vn  not in (select e.vn from er_regist e )
+
+and v.pdx between 'j450' and 'j46'</SqlCommand>
       </DataSource1>
     </DataSources>
-    <Relations isList="true" count="0"/>
+    <Relations count="0" isList="true"/>
     <Report isRef="0"/>
-    <Variables isList="true" count="2">
+    <Variables count="2" isList="true">
       <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
       <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
-  <GlobalizationStrings isList="true" count="0"/>
-  <MetaTags isList="true" count="0"/>
-  <Pages isList="true" count="1">
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
     <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="4">
+      <Components count="4" isList="true">
         <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,19,2.8</ClientRectangle>
-          <Components isList="true" count="5">
+          <Components count="5" isList="true">
             <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0.6,18.6,1</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -88,7 +90,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text14 Ref="7" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>7,1.8,2.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
@@ -100,7 +102,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text15 Ref="8" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4.4,1.8,2.8,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
@@ -112,7 +114,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text16 Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,1.8,2.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
@@ -124,7 +126,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text17 Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.6,1.8,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
@@ -134,7 +136,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text17>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>PageHeaderBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
@@ -142,11 +144,11 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
         <HeaderBand1 Ref="11" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
+          <Components count="10" isList="true">
             <Text3 Ref="12" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.4,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
@@ -158,7 +160,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text7 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,2.4,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -170,7 +172,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text13 Ref="14" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,2.8,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
@@ -182,7 +184,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text8 Ref="15" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
@@ -194,7 +196,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text11 Ref="16" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
@@ -206,7 +208,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text12 Ref="17" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
@@ -218,7 +220,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text20 Ref="18" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
@@ -230,7 +232,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text21 Ref="19" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
@@ -242,7 +244,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text22 Ref="20" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
@@ -254,7 +256,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text23 Ref="21" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
@@ -264,7 +266,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text23>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>HeaderBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
@@ -273,11 +275,11 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
           <Brush>Transparent</Brush>
           <CanBreak>True</CanBreak>
           <ClientRectangle>0,5.6,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
+          <Components count="10" isList="true">
             <Text2 Ref="23" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
@@ -289,7 +291,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text4 Ref="24" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,4.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -301,7 +303,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text5 Ref="25" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,2.4,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
@@ -316,7 +318,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text6 Ref="27" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.6,0,1.4,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -328,7 +330,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text9 Ref="28" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
@@ -340,7 +342,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text10 Ref="29" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
@@ -352,7 +354,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text24 Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
@@ -364,7 +366,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text25 Ref="31" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
@@ -376,7 +378,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text26 Ref="32" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
@@ -388,7 +390,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text27 Ref="33" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
@@ -398,22 +400,22 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text27>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <DataSourceName>DataSource1</DataSourceName>
-          <Filters isList="true" count="0"/>
+          <Filters count="0" isList="true"/>
           <Name>DataBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
-          <Sort isList="true" count="0"/>
+          <Sort count="0" isList="true"/>
         </DataBand1>
         <FooterBand1 Ref="34" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.2,19,1.2</ClientRectangle>
-          <Components isList="true" count="2">
+          <Components count="2" isList="true">
             <Text18 Ref="35" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.8,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
@@ -425,7 +427,7 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
             <Text19 Ref="36" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,4.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
@@ -435,13 +437,13 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text19>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>FooterBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
         </FooterBand1>
       </Components>
-      <Conditions isList="true" count="0"/>
+      <Conditions count="0" isList="true"/>
       <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
       <Margins>1,1,1,1</Margins>
       <Name>Page1</Name>
@@ -464,5 +466,5 @@ and  v.vn  not in (select e.vn from er_regist e )</SqlCommand>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.1.1300</ReportVersion>
   <ScriptLanguage>CSharp</ScriptLanguage>
-  <Styles isList="true" count="0"/>
+  <Styles count="0" isList="true"/>
 </StiSerializer>
