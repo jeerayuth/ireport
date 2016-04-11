@@ -50,7 +50,10 @@ where c.clinic = "019"  and c.clinic_member_status_id="1"  and v.lastvisit_hour 
 
 and v.vstdate between "{datestart}" and "{dateend}"
 
-and v.pdx between 'j450' and 'j46'</SqlCommand>
+and v.pdx between 'j450' and 'j46'
+
+
+group by v.hn</SqlCommand>
       </DataSource1>
     </DataSources>
     <Relations count="0" isList="true"/>
@@ -431,7 +434,7 @@ and v.pdx between 'j450' and 'j46'</SqlCommand>
               <Name>Text19</Name>
               <Page isRef="4"/>
               <Parent isRef="34"/>
-              <Text>จำนวนผู้รับบริการรายครั้ง</Text>
+              <Text>จำนวนผู้รับบริการรายคน</Text>
               <TextBrush>Black</TextBrush>
             </Text19>
           </Components>
@@ -456,10 +459,10 @@ and v.pdx between 'j450' and 'j46'</SqlCommand>
   </Pages>
   <PrinterSettings Ref="38" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true"/>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>01/23/2014 04:16:57 PM</ReportChanged>
+  <ReportChanged>04/11/2016 02:49:11 PM</ReportChanged>
   <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
   <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_asthma_revisit48_er.mrt</ReportFile>
-  <ReportGuid>75f3b84e5bc4c1a356c8be63568cc95c</ReportGuid>
+  <ReportGuid>0dee0aaf8ed666cc4544044bb89a3dd4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.1.1300</ReportVersion>

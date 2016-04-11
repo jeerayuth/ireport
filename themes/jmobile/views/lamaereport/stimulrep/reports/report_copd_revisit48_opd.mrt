@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <StiSerializer version="1.02" type="Flex" application="StiReport">
-  <Dictionary isKey="true" type="Dictionary" Ref="1">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
     <Databases count="1" isList="true">
-      <Connection1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" Ref="2">
+      <Connection1 Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
         <Alias>Connection1</Alias>
         <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
         <Name>Connection1</Name>
       </Connection1>
     </Databases>
     <DataSources count="1" isList="true">
-      <DataSource1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlSource" Ref="3">
+      <DataSource1 Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true">
         <Alias>DataSource1</Alias>
         <Columns count="13" isList="true">
           <value>lastvisit_hour,System.Int32</value>
@@ -54,7 +54,10 @@ and v.vstdate between "{datestart}" and  "{dateend}"
 and  v.vn  not in (select e.vn from er_regist e )
 
 
-and v.pdx between "j440"  and "j449"</SqlCommand>
+and v.pdx between "j440"  and "j449"
+
+
+group by v.hn</SqlCommand>
       </DataSource1>
     </DataSources>
     <Relations count="0" isList="true"/>
@@ -68,15 +71,15 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
   <GlobalizationStrings count="0" isList="true"/>
   <MetaTags count="0" isList="true"/>
   <Pages count="1" isList="true">
-    <Page1 isKey="true" type="Page" Ref="4">
+    <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components count="4" isList="true">
-        <PageHeaderBand1 isKey="true" type="PageHeaderBand" Ref="5">
+        <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,19,2.8</ClientRectangle>
           <Components count="5" isList="true">
-            <Text1 isKey="true" type="Text" Ref="6">
+            <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0.6,18.6,1</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -89,7 +92,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>รายงานจำนวนคนไข้คลินิก COPD สถานะติดตามการรักษา Re-Visit ภายใน 48 ชั่วโมง ที่ OPD</Text>
               <TextBrush>Black</TextBrush>
             </Text1>
-            <Text14 isKey="true" type="Text" Ref="7">
+            <Text14 Ref="7" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>7,1.8,2.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -101,7 +104,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{datestart}</Text>
               <TextBrush>Black</TextBrush>
             </Text14>
-            <Text15 isKey="true" type="Text" Ref="8">
+            <Text15 Ref="8" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4.4,1.8,2.8,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -113,7 +116,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>ระหว่างวันที่</Text>
               <TextBrush>Black</TextBrush>
             </Text15>
-            <Text16 isKey="true" type="Text" Ref="9">
+            <Text16 Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,1.8,2.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -125,7 +128,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{dateend}</Text>
               <TextBrush>Black</TextBrush>
             </Text16>
-            <Text17 isKey="true" type="Text" Ref="10">
+            <Text17 Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.6,1.8,1.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -143,11 +146,11 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
           <Page isRef="4"/>
           <Parent isRef="4"/>
         </PageHeaderBand1>
-        <HeaderBand1 isKey="true" type="HeaderBand" Ref="11">
+        <HeaderBand1 Ref="11" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4,19,0.8</ClientRectangle>
           <Components count="10" isList="true">
-            <Text3 isKey="true" type="Text" Ref="12">
+            <Text3 Ref="12" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.4,0,1.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -159,7 +162,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>HN</Text>
               <TextBrush>Black</TextBrush>
             </Text3>
-            <Text7 isKey="true" type="Text" Ref="13">
+            <Text7 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,2.4,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -171,7 +174,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>วันที่รับบริการ</Text>
               <TextBrush>Black</TextBrush>
             </Text7>
-            <Text13 isKey="true" type="Text" Ref="14">
+            <Text13 Ref="14" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,2.8,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -183,7 +186,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>ชื่อ - สกุล</Text>
               <TextBrush>Black</TextBrush>
             </Text13>
-            <Text8 isKey="true" type="Text" Ref="15">
+            <Text8 Ref="15" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,1.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -195,7 +198,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>PDX</Text>
               <TextBrush>Black</TextBrush>
             </Text8>
-            <Text11 isKey="true" type="Text" Ref="16">
+            <Text11 Ref="16" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -207,7 +210,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>DX0</Text>
               <TextBrush>Black</TextBrush>
             </Text11>
-            <Text12 isKey="true" type="Text" Ref="17">
+            <Text12 Ref="17" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -219,7 +222,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>DX1</Text>
               <TextBrush>Black</TextBrush>
             </Text12>
-            <Text20 isKey="true" type="Text" Ref="18">
+            <Text20 Ref="18" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -231,7 +234,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>DX2</Text>
               <TextBrush>Black</TextBrush>
             </Text20>
-            <Text21 isKey="true" type="Text" Ref="19">
+            <Text21 Ref="19" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -243,7 +246,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>DX3</Text>
               <TextBrush>Black</TextBrush>
             </Text21>
-            <Text22 isKey="true" type="Text" Ref="20">
+            <Text22 Ref="20" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -255,7 +258,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>DX4</Text>
               <TextBrush>Black</TextBrush>
             </Text22>
-            <Text23 isKey="true" type="Text" Ref="21">
+            <Text23 Ref="21" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -273,12 +276,12 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
           <Page isRef="4"/>
           <Parent isRef="4"/>
         </HeaderBand1>
-        <DataBand1 isKey="true" type="DataBand" Ref="22">
+        <DataBand1 Ref="22" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <CanBreak>True</CanBreak>
           <ClientRectangle>0,5.6,19,0.8</ClientRectangle>
           <Components count="10" isList="true">
-            <Text2 isKey="true" type="Text" Ref="23">
+            <Text2 Ref="23" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0,1.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -290,7 +293,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.hn}</Text>
               <TextBrush>Black</TextBrush>
             </Text2>
-            <Text4 isKey="true" type="Text" Ref="24">
+            <Text4 Ref="24" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,4.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -302,7 +305,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.pt_name}</Text>
               <TextBrush>Black</TextBrush>
             </Text4>
-            <Text5 isKey="true" type="Text" Ref="25">
+            <Text5 Ref="25" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,2.4,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -313,11 +316,11 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Parent isRef="22"/>
               <Text>{DataSource1.vstdate}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat isKey="true" type="DateFormat" Ref="26">
+              <TextFormat Ref="26" type="DateFormat" isKey="true">
                 <StringFormat>dd/MM/yyyy</StringFormat>
               </TextFormat>
             </Text5>
-            <Text6 isKey="true" type="Text" Ref="27">
+            <Text6 Ref="27" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.6,0,1.4,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -329,7 +332,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.pdx}</Text>
               <TextBrush>Black</TextBrush>
             </Text6>
-            <Text9 isKey="true" type="Text" Ref="28">
+            <Text9 Ref="28" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -341,7 +344,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.dx0}</Text>
               <TextBrush>Black</TextBrush>
             </Text9>
-            <Text10 isKey="true" type="Text" Ref="29">
+            <Text10 Ref="29" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -353,7 +356,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.dx1}</Text>
               <TextBrush>Black</TextBrush>
             </Text10>
-            <Text24 isKey="true" type="Text" Ref="30">
+            <Text24 Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -365,7 +368,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.dx2}</Text>
               <TextBrush>Black</TextBrush>
             </Text24>
-            <Text25 isKey="true" type="Text" Ref="31">
+            <Text25 Ref="31" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -377,7 +380,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.dx3}</Text>
               <TextBrush>Black</TextBrush>
             </Text25>
-            <Text26 isKey="true" type="Text" Ref="32">
+            <Text26 Ref="32" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -389,7 +392,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{DataSource1.dx4}</Text>
               <TextBrush>Black</TextBrush>
             </Text26>
-            <Text27 isKey="true" type="Text" Ref="33">
+            <Text27 Ref="33" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -410,11 +413,11 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
           <Parent isRef="4"/>
           <Sort count="0" isList="true"/>
         </DataBand1>
-        <FooterBand1 isKey="true" type="FooterBand" Ref="34">
+        <FooterBand1 Ref="34" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.2,19,1.2</ClientRectangle>
           <Components count="2" isList="true">
-            <Text18 isKey="true" type="Text" Ref="35">
+            <Text18 Ref="35" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.8,0,1.6,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -426,7 +429,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Text>{Count(DataBand1)}</Text>
               <TextBrush>Black</TextBrush>
             </Text18>
-            <Text19 isKey="true" type="Text" Ref="36">
+            <Text19 Ref="36" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,4.2,0.6</ClientRectangle>
               <Conditions count="0" isList="true"/>
@@ -435,7 +438,7 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
               <Name>Text19</Name>
               <Page isRef="4"/>
               <Parent isRef="34"/>
-              <Text>จำนวนผู้รับบริการรายครั้ง</Text>
+              <Text>จำนวนผู้รับบริการรายคน</Text>
               <TextBrush>Black</TextBrush>
             </Text19>
           </Components>
@@ -452,18 +455,18 @@ and v.pdx between "j440"  and "j449"</SqlCommand>
       <PageHeight>29.7</PageHeight>
       <PageWidth>21</PageWidth>
       <Report isRef="0"/>
-      <Watermark isKey="true" type="Stimulsoft.Report.Components.StiWatermark" Ref="37">
+      <Watermark Ref="37" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings isKey="true" type="Stimulsoft.Report.Print.StiPrinterSettings" Ref="38"/>
+  <PrinterSettings Ref="38" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true"/>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>09/11/2014 08:36:58 AM</ReportChanged>
+  <ReportChanged>04/11/2016 02:51:20 PM</ReportChanged>
   <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
   <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_copd_revisit48_opd.mrt</ReportFile>
-  <ReportGuid>1be2d9a2ff8ba02fdca5625b386d0902</ReportGuid>
+  <ReportGuid>ff4cd4639285ea744b87044dae21500d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.1.1300</ReportVersion>
