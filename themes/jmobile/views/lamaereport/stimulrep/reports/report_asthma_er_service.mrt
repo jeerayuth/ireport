@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<StiSerializer version="1.02" application="StiReport" type="Flex">
+<StiSerializer version="1.02" type="Flex" application="StiReport">
   <Dictionary isKey="true" type="Dictionary" Ref="1">
-    <Databases isList="true" count="1">
+    <Databases count="1" isList="true">
       <Connection1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" Ref="2">
         <Alias>Connection1</Alias>
         <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
         <Name>Connection1</Name>
       </Connection1>
     </Databases>
-    <DataSources isList="true" count="1">
+    <DataSources count="1" isList="true">
       <DataSource1 isKey="true" type="Stimulsoft.Report.Dictionary.StiMySqlSource" Ref="3">
         <Alias>DataSource1</Alias>
-        <Columns isList="true" count="12">
+        <Columns count="12" isList="true">
           <value>vn,System.String</value>
           <value>hn,System.String</value>
           <value>pt_name,System.String</value>
@@ -29,7 +29,7 @@
         <Dictionary isRef="1"/>
         <Name>DataSource1</Name>
         <NameInSource>Connection1</NameInSource>
-        <Parameters isList="true" count="0"/>
+        <Parameters count="0" isList="true"/>
         <SqlCommand>select
 v.vn,v.hn,concat(p.pname,p.fname,'  ',p.lname) as pt_name,
 v.pdx,v.dx0,v.dx1,v.dx2,v.dx3,v.dx4,v.dx5 ,c.clinic,v.vstdate
@@ -44,34 +44,34 @@ where
 v.vstdate between "{datestart}" and "{dateend}"  
 and c.clinic="019" and c.clinic_member_status_id="1"
 
-and v.pdx between "J440" and "J449"
+and v.pdx between "J450" and "J46"
 
 group by v.hn</SqlCommand>
       </DataSource1>
     </DataSources>
-    <Relations isList="true" count="0"/>
+    <Relations count="0" isList="true"/>
     <Report isRef="0"/>
-    <Variables isList="true" count="2">
+    <Variables count="2" isList="true">
       <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
       <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
-  <GlobalizationStrings isList="true" count="0"/>
-  <MetaTags isList="true" count="0"/>
-  <Pages isList="true" count="1">
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
     <Page1 isKey="true" type="Page" Ref="4">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="4">
+      <Components count="4" isList="true">
         <PageHeaderBand1 isKey="true" type="PageHeaderBand" Ref="5">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,19,2.8</ClientRectangle>
-          <Components isList="true" count="6">
+          <Components count="6" isList="true">
             <Text1 isKey="true" type="Text" Ref="6">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0.2,18.6,1</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -84,7 +84,7 @@ group by v.hn</SqlCommand>
             <Text14 isKey="true" type="Text" Ref="7">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.6,2,2.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
@@ -96,7 +96,7 @@ group by v.hn</SqlCommand>
             <Text15 isKey="true" type="Text" Ref="8">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,2,2.8,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
@@ -108,7 +108,7 @@ group by v.hn</SqlCommand>
             <Text16 isKey="true" type="Text" Ref="9">
               <Brush>Transparent</Brush>
               <ClientRectangle>10.8,2,2.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
@@ -120,7 +120,7 @@ group by v.hn</SqlCommand>
             <Text17 isKey="true" type="Text" Ref="10">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.2,2,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,14</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
@@ -132,18 +132,18 @@ group by v.hn</SqlCommand>
             <Text9 isKey="true" type="Text" Ref="11">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,1,18.6,1</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
               <Page isRef="4"/>
               <Parent isRef="5"/>
-              <Text>มี Diag หลัก ระหว่าง "J440" and "J449"</Text>
+              <Text>มี Diag หลัก ระหว่าง "J450" and "J46"</Text>
               <TextBrush>Black</TextBrush>
             </Text9>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>PageHeaderBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
@@ -151,11 +151,11 @@ group by v.hn</SqlCommand>
         <HeaderBand1 isKey="true" type="HeaderBand" Ref="12">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
+          <Components count="10" isList="true">
             <Text3 isKey="true" type="Text" Ref="13">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.4,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
@@ -167,7 +167,7 @@ group by v.hn</SqlCommand>
             <Text7 isKey="true" type="Text" Ref="14">
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,2.4,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -179,7 +179,7 @@ group by v.hn</SqlCommand>
             <Text13 isKey="true" type="Text" Ref="15">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,2.8,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
@@ -191,7 +191,7 @@ group by v.hn</SqlCommand>
             <Text8 isKey="true" type="Text" Ref="16">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
@@ -203,7 +203,7 @@ group by v.hn</SqlCommand>
             <Text11 isKey="true" type="Text" Ref="17">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
@@ -215,7 +215,7 @@ group by v.hn</SqlCommand>
             <Text12 isKey="true" type="Text" Ref="18">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
@@ -227,7 +227,7 @@ group by v.hn</SqlCommand>
             <Text20 isKey="true" type="Text" Ref="19">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
@@ -239,7 +239,7 @@ group by v.hn</SqlCommand>
             <Text21 isKey="true" type="Text" Ref="20">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
@@ -251,7 +251,7 @@ group by v.hn</SqlCommand>
             <Text22 isKey="true" type="Text" Ref="21">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
@@ -263,7 +263,7 @@ group by v.hn</SqlCommand>
             <Text23 isKey="true" type="Text" Ref="22">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
@@ -273,7 +273,7 @@ group by v.hn</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text23>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>HeaderBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
@@ -282,11 +282,11 @@ group by v.hn</SqlCommand>
           <Brush>Transparent</Brush>
           <CanBreak>True</CanBreak>
           <ClientRectangle>0,5.6,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
+          <Components count="10" isList="true">
             <Text2 isKey="true" type="Text" Ref="24">
               <Brush>Transparent</Brush>
               <ClientRectangle>0.4,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
@@ -298,7 +298,7 @@ group by v.hn</SqlCommand>
             <Text4 isKey="true" type="Text" Ref="25">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,4.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -310,7 +310,7 @@ group by v.hn</SqlCommand>
             <Text5 isKey="true" type="Text" Ref="26">
               <Brush>Transparent</Brush>
               <ClientRectangle>7,0,2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
@@ -325,7 +325,7 @@ group by v.hn</SqlCommand>
             <Text6 isKey="true" type="Text" Ref="28">
               <Brush>Transparent</Brush>
               <ClientRectangle>9.8,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -337,7 +337,7 @@ group by v.hn</SqlCommand>
             <Text10 isKey="true" type="Text" Ref="29">
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
@@ -349,7 +349,7 @@ group by v.hn</SqlCommand>
             <Text24 isKey="true" type="Text" Ref="30">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
@@ -361,7 +361,7 @@ group by v.hn</SqlCommand>
             <Text25 isKey="true" type="Text" Ref="31">
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
@@ -373,7 +373,7 @@ group by v.hn</SqlCommand>
             <Text26 isKey="true" type="Text" Ref="32">
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
@@ -385,7 +385,7 @@ group by v.hn</SqlCommand>
             <Text27 isKey="true" type="Text" Ref="33">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.4,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
@@ -397,7 +397,7 @@ group by v.hn</SqlCommand>
             <Text28 isKey="true" type="Text" Ref="34">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Arial,10</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
@@ -407,22 +407,22 @@ group by v.hn</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text28>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <DataSourceName>DataSource1</DataSourceName>
-          <Filters isList="true" count="0"/>
+          <Filters count="0" isList="true"/>
           <Name>DataBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
-          <Sort isList="true" count="0"/>
+          <Sort count="0" isList="true"/>
         </DataBand1>
         <FooterBand1 isKey="true" type="FooterBand" Ref="35">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.2,19,1.2</ClientRectangle>
-          <Components isList="true" count="2">
+          <Components count="2" isList="true">
             <Text18 isKey="true" type="Text" Ref="36">
               <Brush>Transparent</Brush>
               <ClientRectangle>16.8,0,1.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
@@ -434,7 +434,7 @@ group by v.hn</SqlCommand>
             <Text19 isKey="true" type="Text" Ref="37">
               <Brush>Transparent</Brush>
               <ClientRectangle>12.6,0,4.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0"/>
+              <Conditions count="0" isList="true"/>
               <Font>Tahoma,10,Bold</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
@@ -444,13 +444,13 @@ group by v.hn</SqlCommand>
               <TextBrush>Black</TextBrush>
             </Text19>
           </Components>
-          <Conditions isList="true" count="0"/>
+          <Conditions count="0" isList="true"/>
           <Name>FooterBand1</Name>
           <Page isRef="4"/>
           <Parent isRef="4"/>
         </FooterBand1>
       </Components>
-      <Conditions isList="true" count="0"/>
+      <Conditions count="0" isList="true"/>
       <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
       <Margins>1,1,1,1</Margins>
       <Name>Page1</Name>
@@ -465,13 +465,13 @@ group by v.hn</SqlCommand>
   </Pages>
   <PrinterSettings isKey="true" type="Stimulsoft.Report.Print.StiPrinterSettings" Ref="39"/>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>01/22/2014 01:14:43 PM</ReportChanged>
+  <ReportChanged>06/17/2016 10:02:46 AM</ReportChanged>
   <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
   <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_asthma_er_service.mrt</ReportFile>
-  <ReportGuid>521eb90320cfa19736e9b8962138674b</ReportGuid>
+  <ReportGuid>07163f7ae5bc9dd28bcf5c4f92839263</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.1.1300</ReportVersion>
   <ScriptLanguage>CSharp</ScriptLanguage>
-  <Styles isList="true" count="0"/>
+  <Styles count="0" isList="true"/>
 </StiSerializer>

@@ -1,0 +1,1596 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer type="Flex" version="1.02" application="StiReport">
+  <Dictionary type="Dictionary" isKey="true" Ref="1">
+    <Databases count="1" isList="true">
+      <Connection1 type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true" Ref="2">
+        <Alias>Connection1</Alias>
+        <ConnectionString>server=192.168.1.253;database=hos;user=hospital;password=lamae;</ConnectionString>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources count="1" isList="true">
+      <DataSource1 type="Stimulsoft.Report.Dictionary.StiMySqlSource" isKey="true" Ref="3">
+        <Alias>DataSource1</Alias>
+        <Columns count="29" isList="true">
+          <value>village_id,System.Int32</value>
+          <value>village_moo,System.String</value>
+          <value>village_name,System.String</value>
+          <value>person_screen_all,System.Int32</value>
+          <value>person_screen_sex_man,System.Int32</value>
+          <value>person_screen_sex_woman,System.Int32</value>
+          <value>non_risk,System.Int32</value>
+          <value>man_waist_less_90,System.Int32</value>
+          <value>woman_waist_less_80,System.Int32</value>
+          <value>man_waist_more_90,System.Int32</value>
+          <value>woman_waist_more_80,System.Int32</value>
+          <value>bmi_less_19,System.Int32</value>
+          <value>bmi_between_19_25,System.Int32</value>
+          <value>bmi_more_25,System.Int32</value>
+          <value>bp_120_80_white,System.Int32</value>
+          <value>bps_121139_bpd_89_green_level1,System.Int32</value>
+          <value>bps_120_bpd_8189_green_level1,System.Int32</value>
+          <value>bps1,System.Int32</value>
+          <value>bps2,System.Int32</value>
+          <value>bps3,System.Int32</value>
+          <value>dtx_less_100_white,System.Int32</value>
+          <value>dtx_between_100_125_green_normal,System.Int32</value>
+          <value>dtx_more_126_green_streng,System.Int32</value>
+          <value>present_smoking,System.Int32</value>
+          <value>no_present_smoking,System.Int32</value>
+          <value>present_drinking_alcohol,System.Int32</value>
+          <value>non_present_drinking_alcohol,System.Int32</value>
+          <value>present_exercise,System.Int32</value>
+          <value>non_present_exercise,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters count="0" isList="true"/>
+        <SqlCommand>SELECT 
+v.village_id,
+v.village_moo,
+v.village_name,
+
+(
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}"
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS person_screen_all,
+
+
+(
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=1 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS person_screen_sex_man,
+
+
+(
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=2 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS person_screen_sex_woman,
+
+
+
+(
+select count(*) from person_dmht_risk_screen_head pdr
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}"
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)
+and
+
+(
+pdn.history_dm_disease!="Y" and pdn.history_liver_disease!="Y" and pdn.history_heart_disease!="Y" and pdn.history_leg_dm_operation!="Y"  and
+pdn.history_water_thirst!="Y" and pdn.history_eat_thin!="Y" and pdn.history_lip_disease!="Y" and pdn.history_eye_blur!="Y" and pdn.black_axilla!="Y" and
+pdn.history_ht_disease!="Y" and pdn.history_palsy_disease!="Y"and pdn.history_lipid_disease!="Y" and pdn.history_deliver_over_4kg!="Y" and         pdn.history_urine_night!="Y" and pdn.history_weight_lost!="Y" and pdn.history_skin_genital_itch!="Y" and pdn.history_hand_leg_nerve!="Y" and         pdn.history_high_fpg_ogtt!="Y"
+
+)
+and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+
+) AS non_risk,
+
+
+
+
+
+
+(
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=1 and pdr.waist&lt;=90 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS man_waist_less_90,
+
+
+(
+/*โค๊ดชุดนี้ ข้อมูลยังไม่ตรงเท่าไหร่*/
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=2 and pdr.waist&lt;=80 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS woman_waist_less_80,
+
+
+
+
+(
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=1 and pdr.waist&gt;90 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS man_waist_more_90,
+
+
+
+(
+/*โค๊ดชุดนี้ ข้อมูลยังไม่ตรงเท่าไหร่*/
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3) and ps.sex=2 and pdr.waist&gt;80 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS woman_waist_more_80,
+
+
+
+(
+/*โค๊ดชุดนี้ ข้อมูลยังไม่ตรงเท่าไหร่*/
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdr.bmi &lt; 19 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS bmi_less_19,
+
+
+
+
+(
+/*โค๊ดชุดนี้ ข้อมูลยังไม่ตรงเท่าไหร่*/
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdr.bmi BETWEEN 19 and 25 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS bmi_between_19_25,
+
+
+
+(
+/*โค๊ดชุดนี้ ข้อมูลยังไม่ตรงเท่าไหร่*/
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdr.bmi &gt;25 and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS bmi_more_25,
+
+
+
+
+
+
+
+
+
+(
+    
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+      and pdr.last_bps &lt;=120 and pdr.last_bpd &lt;=80
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bp_120_80_white,
+
+
+
+(
+
+     /* bps between 121-139 and bpd &lt;= 89 */
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+
+      and (pdr.last_bps between 121 and 139)  and pdr.last_bpd &lt;=89
+
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bps_121139_bpd_89_green_level1,
+
+
+
+
+(
+
+     /* bps &lt;= 120 and bpd  between 81-89 */
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+
+      and pdr.last_bps &lt;=120  and (pdr.last_bpd between  81 and 89)
+
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bps_120_bpd_8189_green_level1  ,
+
+
+
+
+
+
+(
+
+     /* bps &gt;=140 and bpd &gt;= 90*/
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+      and pdr.last_bps &gt;= 140  and pdr.last_bpd &gt;= 90
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bps1  ,
+
+
+
+
+   (
+
+     /* bps &gt;=140 and bpd &lt;90*/
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+      and pdr.last_bps &gt;= 140  and pdr.last_bpd &lt; 90
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bps2    ,
+
+
+
+   (
+
+     /* bps &lt;=140 and bpd &gt;=90*/
+    select count(*) from person_dmht_risk_screen_head pdr 
+      left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+      left outer join person ps on ps.person_id =pds.person_id
+    where 
+      pdr.screen_date between "{datestart}" and "{dateend}" 
+      and ps.age_y &gt;= 60
+      and ps.house_regist_type_id in (1,3)
+
+      and pdr.last_bps &lt;=140  and pdr.last_bpd &gt;= 90
+
+      and pds.village_id = v.village_id
+      and pds.person_dm_screen_status_id is not null
+   ) AS bps3 ,
+
+
+
+
+
+
+
+
+
+
+
+
+
+(
+select
+count(*)  from person_dmht_risk_screen_head pdr
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person_dm_fgc_screen  pdg on pdg.person_dmht_risk_screen_head_id =  pdr.person_dmht_risk_screen_head_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}"
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdg.fgc_result &lt; 100  and pds.village_id = v.village_id
+) AS dtx_less_100_white,
+
+
+
+(
+
+select
+count(*)  from person_dmht_risk_screen_head pdr
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person_dm_fgc_screen  pdg on pdg.person_dmht_risk_screen_head_id =  pdr.person_dmht_risk_screen_head_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}"
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdg.fgc_result  between 100 and 125  and pds.village_id = v.village_id
+
+) AS dtx_between_100_125_green_normal,
+
+
+
+
+(
+
+select
+count(*)  from person_dmht_risk_screen_head pdr
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person_dm_fgc_screen  pdg on pdg.person_dmht_risk_screen_head_id =  pdr.person_dmht_risk_screen_head_id
+left outer join person ps on ps.person_id =pds.person_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}"
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdg.fgc_result &gt;= 126 and pds.village_id = v.village_id
+) AS dtx_more_126_green_streng,
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_smoking="Y" and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS present_smoking,
+
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_smoking="N" and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS no_present_smoking,
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_drinking_alcohol="Y" and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS present_drinking_alcohol,
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_drinking_alcohol="N" and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS non_present_drinking_alcohol,
+
+
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_exercise_type_id!=5  and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS present_exercise,
+
+
+
+
+
+(
+
+select count(*) from person_dmht_risk_screen_head pdr 
+left outer join person_dmht_screen_summary pds  on pds.person_dmht_screen_summary_id= pdr.person_dmht_screen_summary_id
+left outer join person ps on ps.person_id =pds.person_id
+left outer join person_dmht_nhso_screen pdn on pdn.person_dmht_screen_summary_id=pds.person_dmht_screen_summary_id
+where 
+pdr.screen_date between "{datestart}" and "{dateend}" 
+and ps.age_y &gt;= 60
+and ps.house_regist_type_id in (1,3)  and pdn.present_exercise_type_id=5  and pds.village_id = v.village_id
+and pds.person_dm_screen_status_id is not null
+) AS non_present_exercise
+
+
+
+FROM village v
+
+WHERE village_id NOT IN(1)</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations count="0" isList="true"/>
+    <Report isRef="0"/>
+    <Variables count="2" isList="true">
+      <value>,datestart,เลือกวันที่เริ่มต้น,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
+      <value>,dateend,เลือกวันที่สิ้นสุด,System.String,_x0032_013_x002D_10_x002D_01,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings count="0" isList="true"/>
+  <MetaTags count="0" isList="true"/>
+  <Pages count="1" isList="true">
+    <Page1 type="Page" isKey="true" Ref="4">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components count="6" isList="true">
+        <PageHeaderBand1 type="PageHeaderBand" isKey="true" Ref="5">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,34.6,2.8</ClientRectangle>
+          <Components count="5" isList="true">
+            <Text1 type="Text" isKey="true" Ref="6">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.8,0.6,21.4,1</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,22</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>รายงานกลุ่มเสียงที่ต้องคัดกรองโรคเบาหวาน ความดัน อายุ 60 ปีขึ้นไป</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text14 type="Text" isKey="true" Ref="7">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,1.8,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{datestart}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 type="Text" isKey="true" Ref="8">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.8,1.8,2.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ระหว่างวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 type="Text" isKey="true" Ref="9">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,1.8,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>{dateend}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+            <Text17 type="Text" isKey="true" Ref="10">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16,1.8,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4"/>
+              <Parent isRef="5"/>
+              <Text>ถึงวันที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </PageHeaderBand1>
+        <Text1 type="Text" isKey="true" Ref="11">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>-7,5.2,1.6,0.6</ClientRectangle>
+          <Conditions count="0" isList="true"/>
+          <Font>Arial,10</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>{DataSource1.village_moo}</Text>
+          <TextBrush>Black</TextBrush>
+        </Text1>
+        <Text2 type="Text" isKey="true" Ref="12">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>-9.8,5.2,2.8,0.6</ClientRectangle>
+          <Conditions count="0" isList="true"/>
+          <Font>Arial,10</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>village_moo</Text>
+          <TextBrush>Black</TextBrush>
+        </Text2>
+        <HeaderBand1 type="HeaderBand" isKey="true" Ref="13">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,34.6,2.2</ClientRectangle>
+          <Components count="47" isList="true">
+            <Text3 type="Text" isKey="true" Ref="14">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>หมู่ที่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+            <Text8 type="Text" isKey="true" Ref="15">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,1,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ชาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text8>
+            <Text10 type="Text" isKey="true" Ref="16">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,1,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>หญิง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text10>
+            <Text12 type="Text" isKey="true" Ref="17">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.8,0.4,2.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ไม่พบปัจจัยเสี่ยง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+            <Text13 type="Text" isKey="true" Ref="18">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.8,1,2.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>จากการสัมภาษณ์</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text18 type="Text" isKey="true" Ref="19">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.8,1.6,2.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ด้วยวาจา</Text>
+              <TextBrush>Black</TextBrush>
+            </Text18>
+            <Text19 type="Text" isKey="true" Ref="20">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7,0.4,1.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>รอบเอวปกติ</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+            <Text20 type="Text" isKey="true" Ref="21">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7,1,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ชาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text20>
+            <Text21 type="Text" isKey="true" Ref="22">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,1,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>หญิง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text21>
+            <Text22 type="Text" isKey="true" Ref="23">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,1.6,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&lt;= 90 ซม.</Text>
+              <TextBrush>Black</TextBrush>
+            </Text22>
+            <Text23 type="Text" isKey="true" Ref="24">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,1.6,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&lt;=80 ซม.</Text>
+              <TextBrush>Black</TextBrush>
+            </Text23>
+            <Text26 type="Text" isKey="true" Ref="25">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.4,3.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>รอบเอวเกิน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text26>
+            <Text27 type="Text" isKey="true" Ref="26">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.6,1,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ชาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text27>
+            <Text28 type="Text" isKey="true" Ref="27">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,1.6,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&gt;80 ซม.</Text>
+              <TextBrush>Black</TextBrush>
+            </Text28>
+            <Text29 type="Text" isKey="true" Ref="28">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,1,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>หญิง</Text>
+              <TextBrush>Black</TextBrush>
+            </Text29>
+            <Text30 type="Text" isKey="true" Ref="29">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,1.6,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&gt; 90 ซม.</Text>
+              <TextBrush>Black</TextBrush>
+            </Text30>
+            <Text31 type="Text" isKey="true" Ref="30">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,1,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BMI&lt;19</Text>
+              <TextBrush>Black</TextBrush>
+            </Text31>
+            <Text37 type="Text" isKey="true" Ref="31">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,1,1.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BMI19-25</Text>
+              <TextBrush>Black</TextBrush>
+            </Text37>
+            <Text39 type="Text" isKey="true" Ref="32">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,1,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BMI&gt;25</Text>
+              <TextBrush>Black</TextBrush>
+            </Text39>
+            <Text38 type="Text" isKey="true" Ref="33">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17,0.4,1.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีขาว</Text>
+              <TextBrush>Black</TextBrush>
+            </Text38>
+            <Text40 type="Text" isKey="true" Ref="34">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.2,1,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BP</Text>
+              <TextBrush>Black</TextBrush>
+            </Text40>
+            <Text42 type="Text" isKey="true" Ref="35">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.2,1.6,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&lt;120/80</Text>
+              <TextBrush>Black</TextBrush>
+            </Text42>
+            <Text41 type="Text" isKey="true" Ref="36">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.8,0.4,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีเขียวอ่อน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text41>
+            <Text43 type="Text" isKey="true" Ref="37">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19,1,2.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BP</Text>
+              <TextBrush>Black</TextBrush>
+            </Text43>
+            <Text44 type="Text" isKey="true" Ref="38">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19,1.6,2.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>121/81-139/89</Text>
+              <TextBrush>Black</TextBrush>
+            </Text44>
+            <Text47 type="Text" isKey="true" Ref="39">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.4,0.4,1.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีเขียวเข้ม</Text>
+              <TextBrush>Black</TextBrush>
+            </Text47>
+            <Text48 type="Text" isKey="true" Ref="40">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.6,1,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text48</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>BP</Text>
+              <TextBrush>Black</TextBrush>
+            </Text48>
+            <Text49 type="Text" isKey="true" Ref="41">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.6,1.6,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text49</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&gt;140/90</Text>
+              <TextBrush>Black</TextBrush>
+            </Text49>
+            <Text51 type="Text" isKey="true" Ref="42">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23,0.4,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text51</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีขาว</Text>
+              <TextBrush>Black</TextBrush>
+            </Text51>
+            <Text52 type="Text" isKey="true" Ref="43">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,1,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>DTX</Text>
+              <TextBrush>Black</TextBrush>
+            </Text52>
+            <Text53 type="Text" isKey="true" Ref="44">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,1.6,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text53</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&lt;100</Text>
+              <TextBrush>Black</TextBrush>
+            </Text53>
+            <Text55 type="Text" isKey="true" Ref="45">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24,0.4,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีเขียวอ่อน</Text>
+              <TextBrush>Black</TextBrush>
+            </Text55>
+            <Text56 type="Text" isKey="true" Ref="46">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.2,1,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>DTX</Text>
+              <TextBrush>Black</TextBrush>
+            </Text56>
+            <Text57 type="Text" isKey="true" Ref="47">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.2,1.6,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text57</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>100-125</Text>
+              <TextBrush>Black</TextBrush>
+            </Text57>
+            <Text59 type="Text" isKey="true" Ref="48">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.4,0.4,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text59</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สีเขียวเข้ม</Text>
+              <TextBrush>Black</TextBrush>
+            </Text59>
+            <Text60 type="Text" isKey="true" Ref="49">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.6,1,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text60</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>DTX</Text>
+              <TextBrush>Black</TextBrush>
+            </Text60>
+            <Text61 type="Text" isKey="true" Ref="50">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.6,1.6,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text61</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>&gt;126</Text>
+              <TextBrush>Black</TextBrush>
+            </Text61>
+            <Text63 type="Text" isKey="true" Ref="51">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>27,1,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text63</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>สูบบุหรี่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text63>
+            <Text65 type="Text" isKey="true" Ref="52">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28.2,1,1.4,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text65</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ไม่สูบบุหรี่</Text>
+              <TextBrush>Black</TextBrush>
+            </Text65>
+            <Text68 type="Text" isKey="true" Ref="53">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>29.6,1,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text68</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ดื่ม</Text>
+              <TextBrush>Black</TextBrush>
+            </Text68>
+            <Text67 type="Text" isKey="true" Ref="54">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>29.6,1.6,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text67</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>Alcohol</Text>
+              <TextBrush>Black</TextBrush>
+            </Text67>
+            <Text69 type="Text" isKey="true" Ref="55">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>30.8,1,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text69</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ไม่ดื่ม</Text>
+              <TextBrush>Black</TextBrush>
+            </Text69>
+            <Text70 type="Text" isKey="true" Ref="56">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>30.8,1.6,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text70</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>Alcohol</Text>
+              <TextBrush>Black</TextBrush>
+            </Text70>
+            <Text74 type="Text" isKey="true" Ref="57">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>32,1,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text74</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ออก</Text>
+              <TextBrush>Black</TextBrush>
+            </Text74>
+            <Text75 type="Text" isKey="true" Ref="58">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>32,1.6,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text75</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>กำลังกาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text75>
+            <Text73 type="Text" isKey="true" Ref="59">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>33.2,1,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text73</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>ไม่ออก</Text>
+              <TextBrush>Black</TextBrush>
+            </Text73>
+            <Text76 type="Text" isKey="true" Ref="60">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>33.2,1.6,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text76</Name>
+              <Page isRef="4"/>
+              <Parent isRef="13"/>
+              <Text>กำลังกาย</Text>
+              <TextBrush>Black</TextBrush>
+            </Text76>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </HeaderBand1>
+        <DataBand1 type="DataBand" isKey="true" Ref="61">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7,34.6,0.8</ClientRectangle>
+          <Components count="25" isList="true">
+            <Text4 type="Text" isKey="true" Ref="62">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,0.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.village_moo}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text4>
+            <Text5 type="Text" isKey="true" Ref="63">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0,1.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.village_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text5>
+            <Text7 type="Text" isKey="true" Ref="64">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.person_screen_sex_man}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text9 type="Text" isKey="true" Ref="65">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.person_screen_sex_woman}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text11 type="Text" isKey="true" Ref="66">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0,1.6,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.non_risk}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text24 type="Text" isKey="true" Ref="67">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.6,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.man_waist_less_90}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text24>
+            <Text25 type="Text" isKey="true" Ref="68">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.woman_waist_less_80}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text25>
+            <Text32 type="Text" isKey="true" Ref="69">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.6,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.man_waist_more_90}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text32>
+            <Text33 type="Text" isKey="true" Ref="70">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.woman_waist_more_80}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text33>
+            <Text34 type="Text" isKey="true" Ref="71">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.6,0,0.8,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bmi_less_19}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text34>
+            <Text35 type="Text" isKey="true" Ref="72">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bmi_between_19_25}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text35>
+            <Text36 type="Text" isKey="true" Ref="73">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bmi_more_25}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text36>
+            <Text54 type="Text" isKey="true" Ref="74">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.2,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text54</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.dtx_less_100_white}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text54>
+            <Text58 type="Text" isKey="true" Ref="75">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.4,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text58</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.dtx_between_100_125_green_normal}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text58>
+            <Text62 type="Text" isKey="true" Ref="76">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>25.8,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.dtx_more_126_green_streng}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text62>
+            <Text64 type="Text" isKey="true" Ref="77">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>27,0,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text64</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.present_smoking}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text64>
+            <Text66 type="Text" isKey="true" Ref="78">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28.2,0,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text66</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.no_present_smoking}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text66>
+            <Text6 type="Text" isKey="true" Ref="79">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>29.6,0,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.present_drinking_alcohol}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text71 type="Text" isKey="true" Ref="80">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>31,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text71</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.non_present_drinking_alcohol}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text71>
+            <Text72 type="Text" isKey="true" Ref="81">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>32.2,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text72</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.present_exercise}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text72>
+            <Text77 type="Text" isKey="true" Ref="82">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>33.2,0,1.2,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text77</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.non_present_exercise}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text77>
+            <Text45 type="Text" isKey="true" Ref="83">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bp_120_80_white}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text45>
+            <Text46 type="Text" isKey="true" Ref="84">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19.6,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text46</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bps_121139_bpd_89_green_level1+DataSource1.bps_120_bpd_8189_green_level1}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text46>
+            <Text50 type="Text" isKey="true" Ref="85">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.8,0,1,0.6</ClientRectangle>
+              <Conditions count="0" isList="true"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text50</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <Text>{DataSource1.bps1+DataSource1.bps2+DataSource1.bps3}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text50>
+            <HorizontalLinePrimitive1 type="HorizontalLinePrimitive" isKey="true" Ref="86">
+              <ClientRectangle>0,0.6,34.4,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <Conditions count="0" isList="true"/>
+              <EndCap type="Cap" isKey="true" Ref="87">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="61"/>
+              <StartCap type="Cap" isKey="true" Ref="88">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Conditions count="0" isList="true"/>
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters count="0" isList="true"/>
+          <Name>DataBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Sort count="0" isList="true"/>
+        </DataBand1>
+        <FooterBand1 type="FooterBand" isKey="true" Ref="89">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8.6,34.6,1.2</ClientRectangle>
+          <Components count="0" isList="true"/>
+          <Conditions count="0" isList="true"/>
+          <Name>FooterBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </FooterBand1>
+      </Components>
+      <Conditions count="0" isList="true"/>
+      <Guid>5ceacc4ab7204333cb3156569f48aa36</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21.6</PageHeight>
+      <PageWidth>35.6</PageWidth>
+      <PaperSize>Legal</PaperSize>
+      <Report isRef="0"/>
+      <Watermark type="Stimulsoft.Report.Components.StiWatermark" isKey="true" Ref="90">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" Ref="91"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>03/04/2014 12:03:57 PM</ReportChanged>
+  <ReportCreated>11/14/2013 06:19:46 PM</ReportCreated>
+  <ReportFile>C:\AppServ\www\iREPORT\themes\jmobile\views\lamaereport\stimulrep\reports\report_screen_dm_ht_60_year.mrt</ReportFile>
+  <ReportGuid>447d1d4e3a70e69277e08b7a138b834a</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.1.1300</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles count="0" isList="true"/>
+</StiSerializer>
